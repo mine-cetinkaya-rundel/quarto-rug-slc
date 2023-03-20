@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 5384194c-bfb0-44da-9fa5-c0cf7469dee8
+      url: 'https://mine.quarto.pub/hello-quarto-slc-rug'

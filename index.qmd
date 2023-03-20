@@ -1,12 +1,20 @@
 ---
 title: "Hello, Penguins!"
-format: html
+format: 
+  html: default
+  pdf: default
 editor: visual
+execute: 
+  echo: true
+  warning: false
+bibliography: references.bib
 ---
+
+# Introduction
 
 ## Data
 
-For this analysis we'll use the `penguins` dataset from the [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) package.
+For this analysis we'll use the `penguins` dataset from the [**palmerpenguins**](https://allisonhorst.github.io/palmerpenguins/) package.[@gorman2014]
 
 ```{r}
 #| label: load-packages
@@ -17,14 +25,35 @@ library(palmerpenguins)
 library(gt)
 ```
 
-## Species
+## Slide with columns
 
-The figure below is a bar plot of species of penguins.
+::: columns
+::: {.column width="30%"}
+Content in Column 1
+:::
+
+::: {.column width="70%"}
+Content in Column 2
+:::
+:::
+
+## Species {.smaller}
+
+@fig-bill-dims-species is a scatter plot of species of penguins.
 
 ```{r}
-#| label: bill-dims-species
+#| label: fig-bill-dims-species
 #| fig-width: 5
 #| fig-asp: 0.618
+#| fig-alt: |
+#|   Scatterplot of bill depth vs. length of three species of penguins (Adelie, 
+#|   Chinstrap, and Gentoo). There is a positive, linear, and moderately strong 
+#|   relationship for each of the species.
+#| fig-cap: |
+#|   Scatterplot of bill depth vs. length of three species of penguins (Adelie, 
+#|   Chinstrap, and Gentoo). 
+#| output-location: slide
+#| code-line-numbers: "|3-6|10"
 ggplot(
   penguins,
   aes(
@@ -40,12 +69,23 @@ ggplot(
 
 ## Penguins
 
-The table below shows the first 10 penguins from the dataset.
+@tbl-penguins-top10 shows the first 10 penguins from the dataset.
 
 ```{r}
-#| label: penguins-top10
+#| label: tbl-penguins-top10
+#| tbl-cap: |
+#|   First 10 rows of the penguins dataset.
+
 penguins |>
   slice_head(n = 10) |>
   select(species, island, bill_length_mm, bill_depth_mm) |>
   gt()
 ```
+
+# Analysis
+
+## Modeling results
+
+...
+
+## References
